@@ -8,4 +8,14 @@ fi
 BUILD_NUM=$1
 echo "Running with BUILD_NUM=" $BUILD_NUM
 docker build -t prajwol5667/cms:$BUILD_NUM .
-docker run -d --name t1  --rm -p 8099:8080 prajwol5667/cms:$BUILD_NUM
+
+if["$(docker ps -q -f name=t1)"]
+then
+echo "Exists"
+
+else
+
+echo "Not Exists"
+
+fi 
+
