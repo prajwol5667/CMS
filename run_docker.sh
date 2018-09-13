@@ -12,6 +12,7 @@ docker build -t prajwol5667/cms:$BUILD_NUM .
 if [  "$(docker ps -q -f name=t1)" ]; then
     if [ "$(docker ps -aq -f status=running -f name=t1)" ]; then
         # cleanup
+        docker stop t1
         docker rm t1
     fi
     # run your container
