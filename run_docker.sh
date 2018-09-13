@@ -9,8 +9,8 @@ BUILD_NUM=$1
 echo "Running with BUILD_NUM=" $BUILD_NUM
 docker build -t prajwol5667/cms:$BUILD_NUM .
 
-if [ ! "$(docker ps -q -f name=t1)" ]; then
-    if [ "$(docker ps -aq -f status=exited -f name=t1)" ]; then
+if [  "$(docker ps -q -f name=t1)" ]; then
+    if [ "$(docker ps -aq -f status=running -f name=t1)" ]; then
         # cleanup
         echo "Container existed"
     fi
