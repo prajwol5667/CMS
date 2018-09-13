@@ -12,9 +12,9 @@ docker build -t prajwol5667/cms:$BUILD_NUM .
 if [  "$(docker ps -q -f name=t1)" ]; then
     if [ "$(docker ps -aq -f status=running -f name=t1)" ]; then
         # cleanup
-        echo "Container existed"
+        docker rm t1
     fi
     # run your container
-    echo"not existed"
+    docker run -d --name t1  --rm -p 8099:8080 prajwol5667/cms:$BUILD_NUM
 fi
 
