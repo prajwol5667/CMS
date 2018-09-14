@@ -15,7 +15,6 @@ if [  "$(docker ps -q -f name=t1)" ]; then
         docker stop t1
         docker rm t1
     fi
-    echo "run your container"
-    docker run -d --name t1  --rm -p 8099:8080 prajwol5667/cms:$BUILD_NUM
 fi
 
+docker run -d --name t1  --rm -p 8099:8080 prajwol5667/cms:$BUILD_NUM
